@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Cover Letter Generator</title>
+</head>
+<body>
+
+    <label for="nameInput">Recipient's Name:</label>
+    <input type="text" id="nameInput"></br></br>
+
+    <label for="salutationSelect">Salutation:</label>
+    <select id="salutationSelect">
+        <option value="Sir">Sir</option>
+        <option value="Ma'am">Ma'am</option>
+    </select></br></br>
+
+    <label for="roleInput">Desired Role:</label>
+    <input type="text" id="roleInput"></br></br>
+
+    <label for="companyInput">Company Name:</label>
+    <input type="text" id="companyInput"></br></br>
+    <label for="locSelect">Location:</label>
+    <select id="locSelect">
+        <option value="">Blank</option>
+        <option value="in Kolkata location">Kolkata</option>
+    </select></br></br>
+    <label for="whoSelect">Who:</label>
+    <select id="whoSelect">
+        <option value="you're">you're</option>
+        <option value="your team is">your team is</option>
+    </select></br></br>
+    <label for="docSelect">Docs:</label>
+    <select id="docSelect">
+        <option value="𝗿𝗲𝘀𝘂𝗺𝗲 which I've attached below">𝗿𝗲𝘀𝘂𝗺𝗲</option>
+        <option value="𝗟𝗶𝗻𝗸𝗲𝗱𝗜𝗻 profile">𝗟𝗶𝗻𝗸𝗲𝗱𝗜𝗻</option>
+    </select></br></br>
+
+    <button onclick="generateLetter()">Generate Cover Letter</button>
+
+    <p id="outputLetter"></p>
+
+    <button onclick="copyToClipboard()">Copy</button>
+
+    <script>
+        function generateLetter() {
+            // Get the values entered in the input boxes and dropdown
+            var recipientName = document.getElementById("nameInput").value;
+            var salutation = document.getElementById("salutationSelect").value;
+            var desiredRole = document.getElementById("roleInput").value;
+            var companyName = document.getElementById("companyInput").value;
+            var loc = document.getElementById("locSelect").value;
+            var who = document.getElementById("whoSelect").value;
+var doc = document.getElementById("docSelect").value;
+
+            // Cover letter template
+            var coverLetter = "Hello " + recipientName + " " + salutation + ",\n\n    \u00A0\u00A0\u00A0\u00A0Hi, This is Samim and hope you are doing well. Recently I got to know about the " + desiredRole + " role at " + companyName + " " + loc +", and I'm really very interested in this position " + who + " recruiting for.\n\n\u00A0\u00A0\u00A0\u00A0With almost 𝟳 𝘆𝗲𝗮𝗿𝘀 of industry experience, my expertise and skills align with the job requirements perfectly. My current role as a 𝗦𝗲𝗻𝗶𝗼𝗿 𝗗𝗮𝘁𝗮 𝗤𝘂𝗮𝗹𝗶𝘁𝘆 𝗔𝗻𝗮𝗹𝘆𝘀𝘁 at 𝗔𝗽𝗽𝗲𝗻 involves 𝟭𝟯+ 𝗽𝗿𝗼𝗷𝗲𝗰𝘁𝘀 focusing on the advancement of AI-ML models and Speech Recognition systems. My previous role as a 𝗦𝗲𝗮𝗿𝗰𝗵 𝗔𝗻𝗮𝗹𝘆𝘀𝘁 at 𝗪𝗲𝗹𝗼𝗰𝗮𝗹𝗶𝘇𝗲 focused on the improvement of Large Language Models. After all these, I believe I would be a strong candidate for this role.\n\n\u00A0\u00A0\u00A0\u00A0Please check out my " + doc + " for your reference. Thanks for your time and consideration. I'll be waiting for your response.You can contact me by phone at +919933822034 or by email at mdsamimakhter2001@gmail.com. \n\n\n\nRegards,\nMd Samim Akhter";
+
+            // Display the generated cover letter
+            document.getElementById("outputLetter").innerText = coverLetter;
+        }
+
+        function copyToClipboard() {
+            var outputLetter = document.getElementById('outputLetter');
+            var range = document.createRange();
+            range.selectNode(outputLetter);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+            alert('Letter copied to clipboard!');
+        }
+    </script>
+
+</body>
+</html>
